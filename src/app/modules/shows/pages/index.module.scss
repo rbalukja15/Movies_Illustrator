@@ -1,4 +1,25 @@
-.content {
+.wrapper {
+  margin-top: 5rem;
+}
+
+.container {
+  display: flex;
   margin-top: 5rem;
   justify-content: center;
+}
+
+.item {
+  transition: transform 300ms ease 100ms;
+}
+
+.container:hover .item {
+  transform: translateX(-15%);
+}
+
+.item:hover ~ .item {
+  transform: translateX(15%);
+}
+
+.item:hover {
+  transform: scale(1.1) !important;
 }

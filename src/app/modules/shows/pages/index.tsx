@@ -32,11 +32,11 @@ const Home = (props: PropsWithChildren<Props>): ReactElement<FunctionComponent<P
     }, [_refresh]);
 
     return (
-        <div className={styles.content}>
+        <div className={styles.wrapper}>
             {shows.length && (
-                <Grid container spacing={2}>
+                <Grid container spacing={2} className={styles.container}>
                     {shows.map((show, index) => (
-                        <Grid key={index} item>
+                        <Grid key={index} item className={styles.item}>
                             <MovieCard key={index} showData={show} />
                         </Grid>
                     ))}

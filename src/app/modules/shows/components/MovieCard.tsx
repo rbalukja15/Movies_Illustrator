@@ -1,6 +1,7 @@
-import React, { FunctionComponent, PropsWithChildren, ReactElement } from 'react';
+import React, { FunctionComponent, PropsWithChildren, ReactElement, useState } from 'react';
 import { IShow } from '../interfaces';
 import {
+    Button,
     Card,
     CardActionArea,
     CardActions,
@@ -9,6 +10,7 @@ import {
     Divider,
     Grid,
     Paper,
+    Popover,
     Typography,
 } from '@material-ui/core';
 import styles from './index.module.scss';
@@ -19,9 +21,21 @@ interface OwnProps {
 }
 
 const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
+    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const {
         showData: { show },
     } = props;
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    const id = open ? 'simple-popover' : undefined;
 
     return (
         <Card className={styles.card}>
@@ -29,8 +43,8 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
-                    height="300"
-                    width="300"
+                    height="200"
+                    width="200"
                     image={show.image.medium}
                     title="Contemplative Reptile"
                 />
@@ -66,7 +80,25 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         </Grid>
                         <Grid item xs={4} className={styles.item}>
                             <Paper variant={'outlined'} className={styles.paper}>
-                                {labels.MORE_INFO}
+                                <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
+                                    {labels.MORE_INFO}
+                                </Button>
+                                <Popover
+                                    id={id}
+                                    open={open}
+                                    anchorEl={anchorEl}
+                                    onClose={handleClose}
+                                    anchorOrigin={{
+                                        vertical: 'bottom',
+                                        horizontal: 'center',
+                                    }}
+                                    transformOrigin={{
+                                        vertical: 'top',
+                                        horizontal: 'center',
+                                    }}
+                                >
+                                    <Typography>The content of the Popover.</Typography>
+                                </Popover>
                             </Paper>
                         </Grid>
                     </Grid>

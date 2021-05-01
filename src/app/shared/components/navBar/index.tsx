@@ -41,7 +41,7 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
     const icon = !appliedTheme ? <Brightness7Icon /> : <Brightness3Icon />;
     const applyTheme = () =>
         muiStyles.getMuiTheme(
-            appliedTheme ? (muiStyles.darkTheme as ThemeOptions) : (muiStyles.lightTheme as ThemeOptions),
+            !appliedTheme ? (muiStyles.darkTheme as ThemeOptions) : (muiStyles.lightTheme as ThemeOptions),
         );
 
     const handleClick = (): void => {
