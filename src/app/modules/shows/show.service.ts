@@ -23,7 +23,7 @@ const getShows = async (): Promise<IShow[] | AxiosError> => {
 
     const response = await axios(requestOptions);
 
-    return response.data.data;
+    return response.data;
 };
 
 const showService = {

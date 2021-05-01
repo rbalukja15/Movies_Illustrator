@@ -5,6 +5,7 @@ import { compose } from 'recompose';
 import PublicNavbar from '../navBar';
 import Footer from '../footer';
 import { AppState } from '../../store';
+import Home from '../../../modules/shows/pages';
 
 type OwnProps = ReturnType<typeof mapStateToProps>;
 
@@ -12,15 +13,10 @@ const PrivateLayout = (props: PropsWithChildren<OwnProps>): ReactElement<Functio
     return (
         <div>
             <PublicNavbar>
-                {props.loggedIn ? (
-                    <Switch>
-                        <Route exact path="/" component={'routeDefault'} />
-                        <Route exact path={'route1'} />
-                        <Route exact path={'route2'} />
-                    </Switch>
-                ) : (
-                    <Redirect to="/app/login" />
-                )}
+                <Switch>
+                    <Route exact path={'/'} component={Home} />
+                    <Route exact path={'/home'} component={Home} />
+                </Switch>
             </PublicNavbar>
             <Footer />
         </div>

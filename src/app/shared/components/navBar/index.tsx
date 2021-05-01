@@ -9,6 +9,10 @@ import {
     Typography,
     ThemeOptions,
     Button,
+    Divider,
+    List,
+    ListItem,
+    ListItemText,
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import { MuiThemeProvider, withStyles } from '@material-ui/core/styles';
@@ -20,6 +24,8 @@ import { IPublicNavBar } from '../interfaces';
 import { muiStyles } from '../../styles/mui.styles';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
+import { showRoutes } from '../../../modules/shows/show.constants';
+import HomeIcon from '@material-ui/icons/Home';
 
 const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<FunctionComponent<IPublicNavBar>> => {
     const {
@@ -46,7 +52,22 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
         setMobileOpen(!mobileOpen);
     };
 
-    const drawer: JSX.Element = null;
+    const drawer: JSX.Element = (
+        <div>
+            <div className={classes.toolbar} />
+            <Divider />
+            <List component="nav" aria-labelledby="nested-list-subheader" className={classes.list}>
+                <ListItem
+                    component={Link}
+                    className={pathname === showRoutes.HOME ? classes.selectedListItem : classes.listItem}
+                    to={showRoutes.HOME}
+                >
+                    <HomeIcon />
+                    <ListItemText primary={'Home'} className={classes.listItemText} />
+                </ListItem>
+            </List>
+        </div>
+    );
 
     const container = window !== undefined ? () => window.document.body : undefined;
 
@@ -66,7 +87,7 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
                             <MenuIcon />
                         </IconButton>
                         <Typography variant="h5" noWrap className={classes.typography}>
-                            React Typescript Template
+                            Movie Illustrator
                         </Typography>
                         <div className={classes.grow} />
                         <div className={classes.sectionDesktop}>
@@ -81,38 +102,36 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
                     </Toolbar>
                 </AppBar>
                 <nav className={classes.drawer} aria-label="mailbox folders">
-                    {props.loggedIn ? (
-                        <React.Fragment>
-                            <Hidden smUp implementation="css">
-                                <Drawer
-                                    container={container}
-                                    variant="temporary"
-                                    anchor={theme.direction === 'rtl' ? 'right' : 'left'}
-                                    open={mobileOpen}
-                                    onClose={handleDrawerToggle}
-                                    classes={{
-                                        paper: classes.drawerPaper,
-                                    }}
-                                    ModalProps={{
-                                        keepMounted: true, // Better open performance on mobile.
-                                    }}
-                                >
-                                    {drawer}
-                                </Drawer>
-                            </Hidden>
-                            <Hidden xsDown implementation="css">
-                                <Drawer
-                                    classes={{
-                                        paper: classes.drawerPaper,
-                                    }}
-                                    variant="permanent"
-                                    open
-                                >
-                                    {drawer}
-                                </Drawer>
-                            </Hidden>
-                        </React.Fragment>
-                    ) : null}
+                    <React.Fragment>
+                        <Hidden smUp implementation="css">
+                            <Drawer
+                                container={container}
+                                variant="temporary"
+                                anchor={theme.direction === 'rtl' ? 'right' : 'left'}
+                                open={mobileOpen}
+                                onClose={handleDrawerToggle}
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                                ModalProps={{
+                                    keepMounted: true, // Better open performance on mobile.
+                                }}
+                            >
+                                {drawer}
+                            </Drawer>
+                        </Hidden>
+                        <Hidden xsDown implementation="css">
+                            <Drawer
+                                classes={{
+                                    paper: classes.drawerPaper,
+                                }}
+                                variant="permanent"
+                                open
+                            >
+                                {drawer}
+                            </Drawer>
+                        </Hidden>
+                    </React.Fragment>
                 </nav>
                 <main className={classes.content}>{children}</main>
             </div>

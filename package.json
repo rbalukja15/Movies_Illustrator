@@ -52,8 +52,9 @@
     "eject": "react-scripts eject",
     "prettier:base": "prettier --parser typescript --single-quote",
     "prettier:check": "npm run prettier:base -- --list-different \\\"src/**/*.{ts,tsx}\\\"",
-    "prettier:write": "npm run prettier:base -- --write \\\"src/**/*.{ts,tsx}\\\""
+    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
   },
+  "proxy": "http://api.tvmaze.com",
   "husky": {
     "hooks": {
       "pre-commit": "npm run prettier:write"

@@ -5,8 +5,13 @@ import { authActions } from '../../shared/actions/auth.actions';
 import { IShow, IShowActions } from './interfaces';
 import showService from './show.service';
 import { showConstants } from './show.constants';
+import { IFilters, IPagination } from '../../shared/interfaces';
 
-function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
+function getShows(
+    pagination: IPagination,
+    searchText?: string,
+    filters?: IFilters,
+): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     return (dispatch) => {
         dispatch(request());
 
@@ -40,6 +45,6 @@ function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     }
 }
 
-export const unitActions = {
+export const showActions = {
     getShows,
 };

@@ -5,3 +5,17 @@ export const showConstants = {
         GET_SHOWS_FAILURE: 'GET_SHOWS_FAILURE',
     },
 };
+
+export const labels = {
+    NO_DATA: 'No data',
+    RATING: 'Rating',
+    YEAR: 'Year',
+    MORE_INFO: '...More info',
+    NETWORK: 'Network',
+    COUNTRY: 'Country',
+    MOVIE_DATA: 'Movie data',
+};
+
+export const showRoutes = {
+    HOME: '/shows',
+};
