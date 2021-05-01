@@ -1,0 +1,7 @@
+export const showConstants = {
+    SHOW_ACTION_TYPES: {
+        GET_SHOWS_REQUEST: 'GET_SHOWS_REQUEST',
+        GET_SHOWS_SUCCESS: 'GET_SHOWS_SUCCESS',
+        GET_SHOWS_FAILURE: 'GET_SHOWS_FAILURE',
+    },
+};
