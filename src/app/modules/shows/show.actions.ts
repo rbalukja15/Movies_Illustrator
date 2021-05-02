@@ -41,6 +41,41 @@ function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     }
 }
 
+function getShowById(movieId: number): (dispatch: Dispatch) => Promise<IShow | AxiosError> {
+    return (dispatch) => {
+        dispatch(request());
+
+        return showService.getShowById(movieId).then(
+            (response: IShow) => {
+                dispatch(success(response));
+                return response;
+            },
+            (error: AxiosError) => {
+                dispatch(failure(error.toString()));
+                dispatch(alertActions.error(error.toString()));
+                dispatch(authActions.logout());
+                return error;
+            },
+        );
+    };
+
+    function request(): IShowActions {
+        return { type: showConstants.SHOW_ACTION_TYPES.GET_SHOW_SUMMARY_REQUEST };
+    }
+
+    function success(response: IShow): IShowActions {
+        return {
+            type: showConstants.SHOW_ACTION_TYPES.GET_SHOW_SUMMARY_SUCCESS,
+            showSummary: response,
+        };
+    }
+
+    function failure(error: string): IShowActions {
+        return { type: showConstants.SHOW_ACTION_TYPES.GET_SHOW_SUMMARY_FAILURE, error };
+    }
+}
+
 export const showActions = {
     getShows,
+    getShowById,
 };

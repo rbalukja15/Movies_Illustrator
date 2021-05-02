@@ -83,11 +83,12 @@ export interface IShow {
 export interface IShowActions {
     type: string;
     shows?: IShow[];
+    showSummary?: IShow;
     error?: string;
 }
 
 export interface IShowState {
     shows: IShow[];
-    show: IShow;
+    showSummary: IShow;
     loading: boolean;
 }

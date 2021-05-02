@@ -4,17 +4,20 @@ import { labels } from '../show.constants';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloseIcon from '@material-ui/icons/Close';
 import { IShow } from '../interfaces';
+import { showActions } from '../show.actions';
+import { connect } from 'react-redux';
 
 type OwnProps = {
     movie: IShow;
     onClose: () => void;
+    getShowSummary: (movieId: number) => Promise<IShow>;
 };
 
 const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
     const { movie, onClose } = props;
 
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        console.log(event.currentTarget);
+    const handleClick = async (movieId: number) => {
+        await props.getShowSummary(movieId);
     };
 
     return (
@@ -47,7 +50,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
                                 <Button
                                     variant="contained"
                                     color="primary"
-                                    onClick={handleClick}
+                                    onClick={async () => await handleClick(movie.show.id)}
                                     endIcon={<ExitToAppIcon />}
                                 >
                                     {labels.MORE_INFO}
@@ -91,4 +94,8 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
     );
 };
 
-export default Detail;
+const mapDispatchToProps = {
+    getShowSummary: showActions.getShowById,
+};
+
+export default connect(null, mapDispatchToProps)(Detail);

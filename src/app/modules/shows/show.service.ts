@@ -26,8 +26,21 @@ const getShows = async (): Promise<IShow[] | AxiosError> => {
     return response.data;
 };
 
+const getShowById = async (movieId: number): Promise<IShow | AxiosError> => {
+    const requestOptions: AxiosRequestConfig = {
+        url: showEndpoints.GET_SHOW_SUMMARY + `/${movieId}`,
+        method: routeConstants.METHODS.GET,
+        headers: headers.authHeader(),
+    };
+
+    const response = await axios(requestOptions);
+
+    return response.data;
+};
+
 const showService = {
     getShows,
+    getShowById,
 };
 
 export default showService;
