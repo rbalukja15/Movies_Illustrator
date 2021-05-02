@@ -7,11 +7,7 @@ import showService from './show.service';
 import { showConstants } from './show.constants';
 import { IFilters, IPagination } from '../../shared/interfaces';
 
-function getShows(
-    pagination: IPagination,
-    searchText?: string,
-    filters?: IFilters,
-): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
+function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     return (dispatch) => {
         dispatch(request());
 

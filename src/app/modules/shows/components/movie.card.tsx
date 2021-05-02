@@ -13,7 +13,7 @@ import {
     Popover,
     Typography,
 } from '@material-ui/core';
-import styles from './index.module.scss';
+import './Index.scss';
 import { labels } from '../show.constants';
 
 interface OwnProps {
@@ -38,7 +38,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
     const id = open ? 'simple-popover' : undefined;
 
     return (
-        <Card className={styles.card}>
+        <Card className={'card'}>
             <CardActionArea>
                 <CardMedia
                     component="img"
@@ -49,16 +49,16 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                     title="Contemplative Reptile"
                 />
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="h2">
+                    <Typography gutterBottom variant="h6" component="h6">
                         {show.name}
                     </Typography>
                 </CardContent>
                 <Divider />
             </CardActionArea>
             <CardActions>
-                <Grid container className={styles.container}>
+                <Grid container className={'container'}>
                     <Grid container>
-                        <Grid item xs={4} className={styles.item}>
+                        <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {show.rating.average ?? labels.NO_DATA}
@@ -68,7 +68,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                                 </Typography>
                             </Paper>
                         </Grid>
-                        <Grid item xs={4} className={styles.item}>
+                        <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {show.premiered}
@@ -78,8 +78,8 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                                 </Typography>
                             </Paper>
                         </Grid>
-                        <Grid item xs={4} className={styles.item}>
-                            <Paper variant={'outlined'} className={styles.paper}>
+                        <Grid item xs={4} className={'card-item'}>
+                            <Paper variant={'outlined'} className={'paper'}>
                                 <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
                                     {labels.MORE_INFO}
                                 </Button>
@@ -103,7 +103,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         </Grid>
                     </Grid>
                     <Grid container>
-                        <Grid item xs={4} className={styles.item}>
+                        <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {show.network ? show.network.name : labels.NO_DATA}
@@ -113,7 +113,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                                 </Typography>
                             </Paper>
                         </Grid>
-                        <Grid item xs={4} className={styles.item}>
+                        <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {show.network ? show.network.country.code : labels.NO_DATA}
@@ -123,8 +123,8 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                                 </Typography>
                             </Paper>
                         </Grid>
-                        <Grid item xs={4} className={styles.item}>
-                            <Paper variant={'outlined'} className={styles.paper}>
+                        <Grid item xs={4} className={'card-item'}>
+                            <Paper variant={'outlined'} className={'paper'}>
                                 {labels.MOVIE_DATA}
                             </Paper>
                         </Grid>
