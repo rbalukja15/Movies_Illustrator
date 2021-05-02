@@ -48,7 +48,7 @@ const Slider = (props: SliderProps) => {
         React.Children.count(children),
     );
 
-    const handleSelect = (movie) => {
+    const handleSelect = (movie: IShow) => {
         setCurrentSlide(movie);
     };
 
