@@ -6,11 +6,15 @@ import CloseIcon from '@material-ui/icons/Close';
 import { IShow } from '../interfaces';
 import { showActions } from '../show.actions';
 import { connect } from 'react-redux';
+import { History } from 'history';
+import { compose } from 'recompose';
+import { withRouter } from 'react-router-dom';
 
 type OwnProps = {
     movie: IShow;
     onClose: () => void;
     getShowSummary: (movieId: number) => Promise<IShow>;
+    history: History;
 };
 
 const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
@@ -18,6 +22,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
 
     const handleClick = async (movieId: number) => {
         await props.getShowSummary(movieId);
+        props.history.push('/details');
     };
 
     return (
@@ -98,4 +103,4 @@ const mapDispatchToProps = {
     getShowSummary: showActions.getShowById,
 };
 
-export default connect(null, mapDispatchToProps)(Detail);
+export default compose(withRouter, connect(null, mapDispatchToProps))(Detail);

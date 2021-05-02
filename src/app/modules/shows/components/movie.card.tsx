@@ -17,14 +17,12 @@ import './Index.scss';
 import { labels } from '../show.constants';
 
 interface OwnProps {
-    showData: IShow;
+    showData: any;
 }
 
 const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-    const {
-        showData: { show },
-    } = props;
+    const { showData } = props;
 
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setAnchorEl(event.currentTarget);
@@ -40,17 +38,9 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
     return (
         <Card className={'card'}>
             <CardActionArea>
-                <CardMedia
-                    component="img"
-                    alt="Contemplative Reptile"
-                    height="200"
-                    width="200"
-                    image={show.image.medium}
-                    title="Contemplative Reptile"
-                />
                 <CardContent>
-                    <Typography gutterBottom variant="h6" component="h6">
-                        {show.name}
+                    <Typography gutterBottom variant="h6" component="h4">
+                        {showData.name}
                     </Typography>
                 </CardContent>
                 <Divider />
@@ -61,7 +51,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
-                                    {show.rating.average ?? labels.NO_DATA}
+                                    {showData.rating.average ?? labels.NO_DATA}
                                 </Typography>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {labels.RATING}
@@ -71,7 +61,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
-                                    {show.premiered}
+                                    {showData.premiered}
                                 </Typography>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {labels.YEAR}
@@ -80,25 +70,12 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         </Grid>
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'} className={'paper'}>
-                                <Button aria-describedby={id} variant="contained" color="primary" onClick={handleClick}>
-                                    {labels.MORE_INFO}
-                                </Button>
-                                <Popover
-                                    id={id}
-                                    open={open}
-                                    anchorEl={anchorEl}
-                                    onClose={handleClose}
-                                    anchorOrigin={{
-                                        vertical: 'bottom',
-                                        horizontal: 'center',
-                                    }}
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'center',
-                                    }}
-                                >
-                                    <Typography>The content of the Popover.</Typography>
-                                </Popover>
+                                <Typography gutterBottom variant="subtitle2" component="h6">
+                                    {showData.language ?? labels.NO_DATA}
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle2" component="h6">
+                                    Language
+                                </Typography>
                             </Paper>
                         </Grid>
                     </Grid>
@@ -106,7 +83,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
-                                    {show.network ? show.network.name : labels.NO_DATA}
+                                    {showData.network ? showData.network.name : labels.NO_DATA}
                                 </Typography>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {labels.NETWORK}
@@ -116,7 +93,7 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'}>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
-                                    {show.network ? show.network.country.code : labels.NO_DATA}
+                                    {showData.network ? showData.network.country.code : labels.NO_DATA}
                                 </Typography>
                                 <Typography gutterBottom variant="subtitle2" component="h6">
                                     {labels.COUNTRY}
@@ -124,9 +101,28 @@ const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCom
                             </Paper>
                         </Grid>
                         <Grid item xs={4} className={'card-item'}>
-                            <Paper variant={'outlined'} className={'paper'}>
-                                {labels.MOVIE_DATA}
+                            <Paper variant={'outlined'}>
+                                <Typography gutterBottom variant="subtitle2" component="h6">
+                                    {showData.type ?? labels.NO_DATA}
+                                </Typography>
+                                <Typography gutterBottom variant="subtitle2" component="h6">
+                                    Type
+                                </Typography>
                             </Paper>
+                        </Grid>
+                    </Grid>
+                    <Grid container>
+                        <Grid item xs={12}>
+                            <div className="content">
+                                <div className="content__area">
+                                    <div className="content__area__container">
+                                        <div
+                                            className="content__description"
+                                            dangerouslySetInnerHTML={{ __html: showData.summary }}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         </Grid>
                     </Grid>
                 </Grid>

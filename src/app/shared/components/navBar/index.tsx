@@ -65,6 +65,14 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
                     <HomeIcon />
                     <ListItemText primary={'Home'} className={classes.listItemText} />
                 </ListItem>
+                <ListItem
+                    component={Link}
+                    className={pathname === showRoutes.HOME ? classes.selectedListItem : classes.listItem}
+                    to={'/details'}
+                >
+                    <HomeIcon />
+                    <ListItemText primary={'Home'} className={classes.listItemText} />
+                </ListItem>
             </List>
         </div>
     );
