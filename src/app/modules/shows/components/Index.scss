@@ -1,6 +1,11 @@
 .slider {
   display: flex;
   position: relative;
+  float: left;
+  width: 100%;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
 
   &__container {
     display: flex;
@@ -8,6 +13,8 @@
     transition: transform 300ms ease 100ms;
     z-index: 3;
     width: 100%;
+    float: left;
+    margin-top: 40px;
   }
 
   &:not(&--open) .item:hover .show-details-button {
@@ -54,6 +61,7 @@
 
   &--next {
     right: 0;
+    margin-top: 80px;
 
     span {
       transform: rotateZ(-90deg);
@@ -62,6 +70,7 @@
 
   &--prev {
     left: 0;
+    margin-top: 80px;
 
     span {
       transform: rotateZ(90deg);
@@ -165,6 +174,10 @@
   transition: transform 300ms ease 100ms;
   margin: 0 2px;
   position: relative;
+
+  &__category {
+    margin-top: 40px;
+  }
 
   img {
     height: 100%;

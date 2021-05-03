@@ -90,5 +90,6 @@ export interface IShowActions {
 export interface IShowState {
     shows: IShow[];
     showSummary: IShow;
+    categories: string[];
     loading: boolean;
 }

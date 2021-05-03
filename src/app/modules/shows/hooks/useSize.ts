@@ -5,7 +5,7 @@ export const useSize = () => {
     const [width, setWidth] = useState(0);
 
     useEffect(() => {
-        setWidth(elementRef.current.clientWidth);
+        elementRef.current && setWidth(elementRef.current.clientWidth);
     }, [elementRef.current]);
 
     return { width, elementRef };

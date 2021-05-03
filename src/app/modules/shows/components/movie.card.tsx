@@ -1,18 +1,5 @@
-import React, { FunctionComponent, PropsWithChildren, ReactElement, useState } from 'react';
-import { IShow } from '../interfaces';
-import {
-    Button,
-    Card,
-    CardActionArea,
-    CardActions,
-    CardContent,
-    CardMedia,
-    Divider,
-    Grid,
-    Paper,
-    Popover,
-    Typography,
-} from '@material-ui/core';
+import React, { FunctionComponent, PropsWithChildren, ReactElement } from 'react';
+import { Card, CardActionArea, CardActions, CardContent, Divider, Grid, Paper, Typography } from '@material-ui/core';
 import './Index.scss';
 import { labels } from '../show.constants';
 
@@ -21,19 +8,7 @@ interface OwnProps {
 }
 
 const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
-    const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const { showData } = props;
-
-    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
-
-    const open = Boolean(anchorEl);
-    const id = open ? 'simple-popover' : undefined;
 
     return (
         <Card className={'card'}>

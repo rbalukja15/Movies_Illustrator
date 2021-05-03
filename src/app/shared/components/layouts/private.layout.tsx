@@ -6,6 +6,7 @@ import PublicNavbar from '../navBar';
 import Footer from '../footer';
 import { AppState } from '../../store';
 import Home from '../../../modules/shows/pages';
+import Categories from '../../../modules/shows/pages/categories';
 import MovieDetail from '../../../modules/shows/pages/movie.detail';
 
 type OwnProps = ReturnType<typeof mapStateToProps>;
@@ -18,6 +19,7 @@ const PrivateLayout = (props: PropsWithChildren<OwnProps>): ReactElement<Functio
                     <Route exact path={'/'} component={Home} />
                     <Route exact path={'/shows'} component={Home} />
                     <Route exact path={'/details'} component={MovieDetail} />
+                    <Route exact path={'/categories'} component={Categories} />
                 </Switch>
             </PublicNavbar>
             <Footer />

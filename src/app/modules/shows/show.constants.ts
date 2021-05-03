@@ -22,3 +22,10 @@ export const labels = {
 export const showRoutes = {
     HOME: '/shows',
 };
+
+export const categories = [
+    {
+        label: 'Favorites',
+        data: [],
+    },
+];

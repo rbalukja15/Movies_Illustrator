@@ -8,9 +8,12 @@ import Context from '../contexts';
 import Detail from './detail';
 import Item from './item';
 import { IShow } from '../interfaces';
+import { Typography } from '@material-ui/core';
+import CategoryItem from './category.item';
 
 type SliderProps = {
-    children?: JSX.Element | JSX.Element[];
+    category?: any;
+    children?: JSX.Element[];
     activeSlide?: IShow;
 };
 
@@ -66,6 +69,9 @@ const Slider = (props: SliderProps) => {
     return (
         <Context.Provider value={contextValue}>
             <SliderWrapper>
+                <Typography component={'h2'} variant={'h5'} style={{ float: 'left' }}>
+                    {props.category}
+                </Typography>
                 <div className={cx('slider', { 'slider--open': currentSlide != null })}>
                     <div ref={containerRef} className="slider__container" {...slideProps}>
                         {children}
@@ -80,5 +86,6 @@ const Slider = (props: SliderProps) => {
 };
 
 Slider.Item = Item;
+Slider.CategoryItem = CategoryItem;
 
 export default Slider;

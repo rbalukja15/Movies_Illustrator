@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { History } from 'history';
 import { compose } from 'recompose';
 import { withRouter } from 'react-router-dom';
+import { loadState, saveState } from '../utils/local.storage';
 
 type OwnProps = {
     movie: IShow;
@@ -23,6 +24,14 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
     const handleClick = async (movieId: number) => {
         await props.getShowSummary(movieId);
         props.history.push('/details');
+    };
+
+    const handleAddFavorite = async (movieId: number) => {
+        const showSummary = await props.getShowSummary(movieId);
+        const currentState = loadState();
+
+        currentState[0].data.push(showSummary);
+        saveState(currentState);
     };
 
     return (
@@ -86,7 +95,14 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
                         </Grid>
                         <Grid item xs={4} className={'card-item'}>
                             <Paper variant={'outlined'} className={'paper'}>
-                                {labels.MOVIE_DATA}
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={async () => await handleAddFavorite(movie.show.id)}
+                                    endIcon={<ExitToAppIcon />}
+                                >
+                                    Add to favorites
+                                </Button>
                             </Paper>
                         </Grid>
                     </Grid>

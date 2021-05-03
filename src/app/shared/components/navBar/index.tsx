@@ -67,11 +67,11 @@ const PublicNavbar = (props: PropsWithChildren<IPublicNavBar>): ReactElement<Fun
                 </ListItem>
                 <ListItem
                     component={Link}
-                    className={pathname === showRoutes.HOME ? classes.selectedListItem : classes.listItem}
-                    to={'/details'}
+                    className={pathname === '/categories' ? classes.selectedListItem : classes.listItem}
+                    to={'/categories'}
                 >
                     <HomeIcon />
-                    <ListItemText primary={'Home'} className={classes.listItemText} />
+                    <ListItemText primary={'Categories'} className={classes.listItemText} />
                 </ListItem>
             </List>
         </div>

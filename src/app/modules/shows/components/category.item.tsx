@@ -27,28 +27,27 @@ const ShowDetailsButton = (props: DetailsButtonProps) => {
     );
 };
 
-const Item = (props: OwnProps) => (
+const CategoryItem = (props: any) => (
     <Context.Consumer>
         {({ onSelectSlide, currentSlide, elementRef }) => {
             const { movie } = props;
             const isActive = currentSlide && currentSlide.id === movie.id;
 
             return (
-                movie.show.image && (
-                    <div
-                        ref={elementRef}
-                        className={cx('item', {
-                            'item--open': isActive,
-                        })}
-                    >
-                        <img src={movie.show.image.original} alt="" />
-                        <ShowDetailsButton onClick={() => onSelectSlide(movie)} />
-                        {isActive && <Mark />}
-                    </div>
-                )
+                <div
+                    ref={elementRef}
+                    className={cx('item', {
+                        'item--open': isActive,
+                        item__category: props.isCategory,
+                    })}
+                >
+                    <img src={movie.image.medium} alt="" />
+                    <ShowDetailsButton onClick={() => onSelectSlide(movie)} />
+                    {isActive && <Mark />}
+                </div>
             );
         }}
     </Context.Consumer>
 );
 
-export default Item;
+export default CategoryItem;

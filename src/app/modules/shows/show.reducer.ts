@@ -4,6 +4,7 @@ import { showConstants } from './show.constants';
 const initialState: IShowState = {
     shows: [],
     showSummary: null,
+    categories: [],
     loading: false,
 };
 
@@ -32,6 +33,7 @@ const showReducer = (state = initialState, action: IShowActions): IShowState => 
             return {
                 shows: [],
                 showSummary: null,
+                categories: [],
                 loading: false,
             };
         default:
