@@ -61,7 +61,8 @@
 
   &--next {
     right: 0;
-    margin-top: 80px;
+    margin-top: 60px;
+    margin-bottom: 20px;
 
     span {
       transform: rotateZ(-90deg);
@@ -70,7 +71,27 @@
 
   &--prev {
     left: 0;
-    margin-top: 80px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+
+    span {
+      transform: rotateZ(90deg);
+    }
+  }
+  &--next-category {
+    right: 0;
+    margin-top: 100px;
+    margin-bottom: 20px;
+
+    span {
+      transform: rotateZ(-90deg);
+    }
+  }
+
+  &--prev-category {
+    left: 0;
+    margin-top: 100px;
+    margin-bottom: 20px;
 
     span {
       transform: rotateZ(90deg);
@@ -202,4 +223,15 @@
   width: -webkit-fill-available;
   width: fill-available;
   height: inherit;
+}
+
+.category-input {
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+}
+
+.card-actions {
+  max-height: 200px;
+  overflow-y: scroll;
 }

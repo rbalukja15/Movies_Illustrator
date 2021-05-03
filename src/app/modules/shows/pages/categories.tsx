@@ -30,7 +30,7 @@ const Categories = (props: PropsWithChildren<Props>): ReactElement<FunctionCompo
                         <Typography key={index} component={'h2'} variant={'h5'}>
                             {category.label} ({category.data.length})
                         </Typography>
-                        <Slider key={index}>
+                        <Slider key={index} isCategoryPage={true}>
                             {category.data.map((show, showIndex) => (
                                 <Slider.CategoryItem
                                     key={showIndex}

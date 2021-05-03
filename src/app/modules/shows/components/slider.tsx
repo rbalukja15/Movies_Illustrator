@@ -13,6 +13,7 @@ import CategoryItem from './category.item';
 type SliderProps = {
     children: unknown;
     activeSlide?: IShow;
+    isCategoryPage?: boolean;
 };
 
 type SlideWrapperProps = {
@@ -20,7 +21,7 @@ type SlideWrapperProps = {
 };
 
 type SliderButtonProps = {
-    type: 'prev' | 'next';
+    type: 'prev' | 'next' | 'prev-category' | 'next-category';
     onClick: () => void;
 };
 
@@ -72,8 +73,8 @@ const Slider = (props: SliderProps) => {
                         {children}
                     </div>
                 </div>
-                {hasPrev && <SlideButton onClick={handlePrev} type="prev" />}
-                {hasNext && <SlideButton onClick={handleNext} type="next" />}
+                {hasPrev && <SlideButton onClick={handlePrev} type={props.isCategoryPage ? 'prev-category' : 'prev'} />}
+                {hasNext && <SlideButton onClick={handleNext} type={props.isCategoryPage ? 'next-category' : 'next'} />}
             </SliderWrapper>
             {currentSlide && <Detail movie={currentSlide} onClose={handleClose} />}
         </Context.Provider>

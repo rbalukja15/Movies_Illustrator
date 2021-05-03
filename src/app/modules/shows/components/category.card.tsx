@@ -108,6 +108,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
 
         localState[dataIndex].data.push(props.showData);
         saveState(localState);
+        alertActions.success(`Added to ${localState[dataIndex].label} Successfully`);
     };
 
     return (
@@ -176,6 +177,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
 
                 <DialogContent>
                     <TextField
+                        className={'category-input'}
                         name={'categoryName'}
                         label={'Category Name'}
                         type="text"
