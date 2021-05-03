@@ -102,7 +102,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
                                     endIcon={<ExitToAppIcon />}
                                     className={'action-button'}
                                 >
-                                    Add to favorites
+                                    {labels.ADD_TO_FAVORITES}
                                 </Button>
                             </Paper>
                         </Grid>

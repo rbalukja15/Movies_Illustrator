@@ -19,6 +19,8 @@ export const labels = {
     MOVIE_DATA: 'Movie data',
     CREATE_CATEGORY: 'Create New Category',
     SAVE_CATEGORY: 'Save Category',
+    ADD_TO: 'Add to',
+    ADD_TO_FAVORITES: 'Add to favorites',
 };
 
 export const showRoutes = {

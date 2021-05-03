@@ -136,7 +136,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                                                 onClick={() => addToCategory(category.label)}
                                                 className={'action-button'}
                                             >
-                                                {category.label}
+                                                {labels.ADD_TO} {category.label}
                                             </Button>
                                         </Paper>
                                     </Grid>
