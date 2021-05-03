@@ -1,18 +1,13 @@
-# React-Redux-Typescript Template/Boilerplate
-This is an extended template/boilerplate to get started with React and Typescript.
+# React-Redux-Typescript Movie Illustrator
+This is a project to display movie data.
 
 # What is this boilerplate about?
-This project has all the required features to get started with React, Typescript and Redux.
-Firstly when I started using Redux with Typescript, it was a real pain. After I got used to it, it became a necessity.
-So I created this template so beginners in React-Redux Typescript can have a head-start in their projects.
-I also added some 'good to have' features.
+This project contains the latest movies/shows. I have implemented a netflix slider. Also, you can view categories, add new ones, add movies to categories etc.
 
 # Tech Stack
-This boilerplate includes:
 1. React
 2. Redux
 3. Typescript
-4. Formik used with Yup
 5. Material-UI used for components
 6. Sass styling
 7. Prettier/Eslint config
@@ -21,13 +16,14 @@ This boilerplate includes:
 I have also included some extra features:
 1. An axios interceptor
 2. Google fonts
-3. Some widely used utils/helpers.
-4. Light/Dark Material-UI Theme
-5. A login page
+3. Light/Dark Material-UI Theme
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm install`
+This is the first script to run after you clone the repo.
 
 ### `npm start`
 
