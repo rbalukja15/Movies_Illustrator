@@ -96,6 +96,7 @@
       color: wheat;
       max-width: 700px;
     }
+
     .paper {
       height: 100%;
     }
@@ -189,4 +190,9 @@
 .card {
   margin-top: 5rem;
   max-width: 500px;
+}
+
+.dialog-title {
+  display: flex;
+  flex-direction: column;
 }

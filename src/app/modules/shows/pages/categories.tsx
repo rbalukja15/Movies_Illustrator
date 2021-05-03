@@ -29,23 +29,7 @@ const Categories = (props: PropsWithChildren<Props>): ReactElement<FunctionCompo
                 data.map((category, index) => (
                     <Slider key={index}>
                         <Typography component={'h2'} variant={'h5'}>
-                            Favorites
-                        </Typography>
-                        {category.data.map((show, showIndex) => (
-                            <Slider.CategoryItem
-                                movie={show}
-                                key={showIndex}
-                                isCategory={true}
-                                total={category.data.length}
-                            />
-                        ))}
-                    </Slider>
-                ))}
-            {data.length &&
-                data.map((category, index) => (
-                    <Slider key={index}>
-                        <Typography component={'h2'} variant={'h5'}>
-                            Favorites
+                            {category.label} {category.data.length}
                         </Typography>
                         {category.data.map((show, showIndex) => (
                             <Slider.CategoryItem
