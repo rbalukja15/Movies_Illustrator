@@ -23,7 +23,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
 
     const handleClick = async (movieId: number) => {
         await props.getShowSummary(movieId);
-        props.history.push('/details');
+        props.history.push(`/shows/${movieId}/details`);
     };
 
     const handleAddFavorite = async (movieId: number) => {

@@ -27,6 +27,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { alertActions } from '../../../shared/actions/alert.actions';
 import { ICategory, IShowSummary } from '../interfaces';
 import './Index.scss';
+import { labels } from '../show.constants';
 
 interface OwnProps {
     children?: JSX.Element | JSX.Element[];
@@ -166,11 +167,11 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                 onClose={() => setIsDialogOpen(false)}
                 aria-labelledby="customized-dialog-title"
                 open={isDialogOpen}
-                maxWidth={'sm'}
+                maxWidth={'xs'}
                 fullWidth={true}
             >
                 <DialogTitle id="customized-dialog-title" onClose={() => setIsDialogOpen(false)}>
-                    <span>Create New Category</span>
+                    <span>{labels.CREATE_CATEGORY}</span>
                 </DialogTitle>
 
                 <DialogContent>
@@ -192,7 +193,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                         disabled={!categoryNameInput}
                         onClick={handleSubmit}
                     >
-                        Save Category
+                        {labels.SAVE_CATEGORY}
                     </Button>
                 </DialogActions>
             </Dialog>

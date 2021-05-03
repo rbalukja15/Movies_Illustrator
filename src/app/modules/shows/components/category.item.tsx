@@ -1,8 +1,7 @@
 import Context from '../contexts';
 import cx from 'classnames';
 import React, { PropsWithChildren } from 'react';
-import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import { IShow, IShowSummary } from '../interfaces';
+import { IShowSummary } from '../interfaces';
 
 type OwnProps = {
     movie: IShowSummary;
@@ -11,26 +10,9 @@ type OwnProps = {
     children?: JSX.Element | JSX.Element[];
 };
 
-type DetailsButtonProps = {
-    onClick: () => void;
-};
-
-const Mark = () => <div className="mark" />;
-
-const ShowDetailsButton = (props: DetailsButtonProps) => {
-    const { onClick } = props;
-    return (
-        <button onClick={onClick} className="show-details-button">
-            <span>
-                <ArrowDownwardIcon />
-            </span>
-        </button>
-    );
-};
-
 const CategoryItem = (props: PropsWithChildren<OwnProps>) => (
     <Context.Consumer>
-        {({ onSelectSlide, currentSlide, elementRef }) => {
+        {({ currentSlide, elementRef }) => {
             const { movie } = props;
             const isActive = currentSlide && currentSlide.id === movie.id;
 
@@ -43,8 +25,6 @@ const CategoryItem = (props: PropsWithChildren<OwnProps>) => (
                     })}
                 >
                     <img src={movie.image.medium} alt="" />
-                    <ShowDetailsButton onClick={() => onSelectSlide(movie)} />
-                    {isActive && <Mark />}
                 </div>
             );
         }}

@@ -1,5 +1,5 @@
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from 'react';
-import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { compose } from 'recompose';
 import PublicNavbar from '../navBar';
@@ -18,7 +18,7 @@ const PrivateLayout = (props: PropsWithChildren<OwnProps>): ReactElement<Functio
                 <Switch>
                     <Route exact path={'/'} component={Home} />
                     <Route exact path={'/shows'} component={Home} />
-                    <Route exact path={'/details'} component={MovieDetail} />
+                    <Route exact path={'/shows/:id/details'} component={MovieDetail} />
                     <Route exact path={'/categories'} component={Categories} />
                 </Switch>
             </PublicNavbar>

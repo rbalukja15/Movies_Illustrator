@@ -1,9 +1,9 @@
 import React, { FunctionComponent, PropsWithChildren, ReactElement } from 'react';
 import { Card, CardActionArea, CardActions, CardContent, Divider, Grid, Paper, Typography } from '@material-ui/core';
-import './Index.scss';
 import { labels } from '../show.constants';
 import CategoryCard from './category.card';
 import { IShowSummary } from '../interfaces';
+import './Index.scss';
 
 interface OwnProps {
     showData: IShowSummary;
