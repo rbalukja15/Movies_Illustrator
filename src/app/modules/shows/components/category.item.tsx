@@ -1,12 +1,13 @@
 import Context from '../contexts';
 import cx from 'classnames';
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
-import { IShow } from '../interfaces';
+import { IShow, IShowSummary } from '../interfaces';
 
 type OwnProps = {
-    movie: IShow;
-    key: number;
+    movie: IShowSummary;
+    isCategory: boolean;
+    total: number;
     children?: JSX.Element | JSX.Element[];
 };
 
@@ -27,7 +28,7 @@ const ShowDetailsButton = (props: DetailsButtonProps) => {
     );
 };
 
-const CategoryItem = (props: any) => (
+const CategoryItem = (props: PropsWithChildren<OwnProps>) => (
     <Context.Consumer>
         {({ onSelectSlide, currentSlide, elementRef }) => {
             const { movie } = props;
