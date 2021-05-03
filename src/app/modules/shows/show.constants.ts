@@ -21,6 +21,8 @@ export const labels = {
     SAVE_CATEGORY: 'Save Category',
     ADD_TO: 'Add to',
     ADD_TO_FAVORITES: 'Add to favorites',
+    CREATE_NEW: 'Create new',
+    ASSIGN_CATEGORY: 'Assign Category',
 };
 
 export const showRoutes = {

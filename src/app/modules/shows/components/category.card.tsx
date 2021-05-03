@@ -116,7 +116,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                 <CardActionArea>
                     <CardContent>
                         <Typography gutterBottom variant="h6" component="h4">
-                            Add To Category
+                            {labels.ASSIGN_CATEGORY}
                         </Typography>
                     </CardContent>
                     <Divider />
@@ -154,7 +154,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                                         onClick={() => setIsDialogOpen(true)}
                                         className={'action-button'}
                                     >
-                                        Create new
+                                        {labels.CREATE_NEW}
                                     </Button>
                                 </Paper>
                             </Grid>
