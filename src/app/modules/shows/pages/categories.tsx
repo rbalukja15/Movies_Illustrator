@@ -26,19 +26,21 @@ const Categories = (props: PropsWithChildren<Props>): ReactElement<FunctionCompo
         <div className={styles.wrapper}>
             {data.length &&
                 data.map((category, index) => (
-                    <Slider key={index}>
+                    <>
                         <Typography component={'h2'} variant={'h5'}>
                             {category.label} ({category.data.length})
                         </Typography>
-                        {category.data.map((show, showIndex) => (
-                            <Slider.CategoryItem
-                                key={showIndex}
-                                movie={show}
-                                isCategory={true}
-                                total={category.data.length}
-                            />
-                        ))}
-                    </Slider>
+                        <Slider key={index}>
+                            {category.data.map((show, showIndex) => (
+                                <Slider.CategoryItem
+                                    key={showIndex}
+                                    movie={show}
+                                    isCategory={true}
+                                    total={category.data.length}
+                                />
+                            ))}
+                        </Slider>
+                    </>
                 ))}
         </div>
     );
