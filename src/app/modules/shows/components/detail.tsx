@@ -22,7 +22,6 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
     const { movie, onClose } = props;
 
     const handleClick = async (movieId: number) => {
-        await props.getShowSummary(movieId);
         props.history.push(`/shows/${movieId}/details`);
     };
 

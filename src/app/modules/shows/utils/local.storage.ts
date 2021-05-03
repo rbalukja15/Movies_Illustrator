@@ -1,5 +1,6 @@
 import { categories } from '../show.constants';
 import { ICategory } from '../interfaces';
+import { alertActions } from '../../../shared/actions/alert.actions';
 
 export const loadState = (): ICategory[] => {
     try {
@@ -14,11 +15,11 @@ export const loadState = (): ICategory[] => {
     }
 };
 
-export const saveState = (state) => {
+export const saveState = (state): void => {
     try {
         const serializedState = JSON.stringify(state);
         localStorage.setItem('state', serializedState);
     } catch {
-        // ignore write errors
+        alertActions.error('Could not save state. An error occurred');
     }
 };
