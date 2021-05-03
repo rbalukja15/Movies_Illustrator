@@ -2,7 +2,7 @@ import axios, { AxiosError, AxiosRequestConfig } from 'axios';
 import Interceptor from '../../shared/utils/axios.interceptor';
 import { routeConstants } from '../../shared/constants/route.constants';
 import { headers } from '../../shared/utils/headers';
-import { IShow } from './interfaces';
+import { IShow, IShowSummary } from './interfaces';
 import { showEndpoints } from './show.endpoints';
 
 axios.interceptors.request.use(function (config) {
@@ -26,7 +26,7 @@ const getShows = async (): Promise<IShow[] | AxiosError> => {
     return response.data;
 };
 
-const getShowById = async (movieId: number): Promise<IShow | AxiosError> => {
+const getShowById = async (movieId: number): Promise<IShowSummary | AxiosError> => {
     const requestOptions: AxiosRequestConfig = {
         url: showEndpoints.GET_SHOW_SUMMARY + `/${movieId}`,
         method: routeConstants.METHODS.GET,

@@ -2,10 +2,9 @@ import { Dispatch } from 'redux';
 import { AxiosError } from 'axios';
 import { alertActions } from '../../shared/actions/alert.actions';
 import { authActions } from '../../shared/actions/auth.actions';
-import { IShow, IShowActions } from './interfaces';
+import { IShow, IShowActions, IShowSummary } from './interfaces';
 import showService from './show.service';
 import { showConstants } from './show.constants';
-import { IFilters, IPagination } from '../../shared/interfaces';
 
 function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     return (dispatch) => {
@@ -41,12 +40,12 @@ function getShows(): (dispatch: Dispatch) => Promise<IShow[] | AxiosError> {
     }
 }
 
-function getShowById(movieId: number): (dispatch: Dispatch) => Promise<IShow | AxiosError> {
+function getShowById(movieId: number): (dispatch: Dispatch) => Promise<IShowSummary | AxiosError> {
     return (dispatch) => {
         dispatch(request());
 
         return showService.getShowById(movieId).then(
-            (response: IShow) => {
+            (response: IShowSummary) => {
                 dispatch(success(response));
                 return response;
             },
@@ -63,7 +62,7 @@ function getShowById(movieId: number): (dispatch: Dispatch) => Promise<IShow | A
         return { type: showConstants.SHOW_ACTION_TYPES.GET_SHOW_SUMMARY_REQUEST };
     }
 
-    function success(response: IShow): IShowActions {
+    function success(response: IShowSummary): IShowActions {
         return {
             type: showConstants.SHOW_ACTION_TYPES.GET_SHOW_SUMMARY_SUCCESS,
             showSummary: response,

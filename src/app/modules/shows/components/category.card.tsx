@@ -17,7 +17,6 @@ import {
     WithStyles,
     withStyles,
 } from '@material-ui/core';
-import './Index.scss';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import CloseIcon from '@material-ui/icons/Close';
 import { loadState, saveState } from '../utils/local.storage';
@@ -25,10 +24,12 @@ import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import Dialog from '@material-ui/core/Dialog';
 import { alertActions } from '../../../shared/actions/alert.actions';
+import { ICategory, IShowSummary } from '../interfaces';
+import './Index.scss';
 
 interface OwnProps {
     children?: JSX.Element | JSX.Element[];
-    showData: any;
+    showData: IShowSummary;
 }
 
 interface DialogTitleProps extends WithStyles<typeof addOrEditDialog> {
@@ -77,7 +78,7 @@ const DialogTitle = withStyles(addOrEditDialog)((props: DialogTitleProps) => {
 const DialogContent = withStyles(dialogContent)(MuiDialogContent);
 
 const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {
-    const [data, setData] = useState<any>(loadState());
+    const [data, setData] = useState<ICategory[]>(loadState());
     const [isDialogOpen, setIsDialogOpen] = useState<boolean>(false);
     const [categoryNameInput, setCategoryNameInput] = useState<string>(null);
 

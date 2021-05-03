@@ -3,9 +3,10 @@ import { Card, CardActionArea, CardActions, CardContent, Divider, Grid, Paper, T
 import './Index.scss';
 import { labels } from '../show.constants';
 import CategoryCard from './category.card';
+import { IShowSummary } from '../interfaces';
 
 interface OwnProps {
-    showData: any;
+    showData: IShowSummary;
 }
 
 const MovieCard = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionComponent<OwnProps>> => {

@@ -1,6 +1,7 @@
 import { categories } from '../show.constants';
+import { ICategory } from '../interfaces';
 
-export const loadState = () => {
+export const loadState = (): ICategory[] => {
     try {
         const serializedState = localStorage.getItem('state');
         if (serializedState === null) {

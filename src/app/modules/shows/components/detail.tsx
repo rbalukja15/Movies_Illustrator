@@ -3,7 +3,7 @@ import { Button, Grid, Paper, Typography } from '@material-ui/core';
 import { labels } from '../show.constants';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import CloseIcon from '@material-ui/icons/Close';
-import { IShow } from '../interfaces';
+import { IShow, IShowSummary } from '../interfaces';
 import { showActions } from '../show.actions';
 import { connect } from 'react-redux';
 import { History } from 'history';
@@ -14,7 +14,7 @@ import { loadState, saveState } from '../utils/local.storage';
 type OwnProps = {
     movie: IShow;
     onClose: () => void;
-    getShowSummary: (movieId: number) => Promise<IShow>;
+    getShowSummary: (movieId: number) => Promise<IShowSummary>;
     history: History;
 };
 
