@@ -27,7 +27,7 @@ const Categories = (props: PropsWithChildren<Props>): ReactElement<FunctionCompo
             {data.length &&
                 data.map((category, index) => (
                     <>
-                        <Typography component={'h2'} variant={'h5'}>
+                        <Typography key={index} component={'h2'} variant={'h5'}>
                             {category.label} ({category.data.length})
                         </Typography>
                         <Slider key={index}>
