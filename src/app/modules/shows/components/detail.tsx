@@ -66,6 +66,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
                                     color="primary"
                                     onClick={async () => await handleClick(movie.show.id)}
                                     endIcon={<ExitToAppIcon />}
+                                    className={'action-button'}
                                 >
                                     {labels.MORE_INFO}
                                 </Button>
@@ -100,6 +101,7 @@ const Detail = (props: PropsWithChildren<OwnProps>): ReactElement<FunctionCompon
                                     color="primary"
                                     onClick={async () => await handleAddFavorite(movie.show.id)}
                                     endIcon={<ExitToAppIcon />}
+                                    className={'action-button'}
                                 >
                                     Add to favorites
                                 </Button>

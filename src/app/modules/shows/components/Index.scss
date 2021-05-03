@@ -196,3 +196,10 @@
   display: flex;
   flex-direction: column;
 }
+
+.action-button {
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+  height: inherit;
+}

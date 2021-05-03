@@ -19,6 +19,7 @@ import {
 } from '@material-ui/core';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import CloseIcon from '@material-ui/icons/Close';
+import CategoryIcon from '@material-ui/icons/Category';
 import { loadState, saveState } from '../utils/local.storage';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
@@ -129,9 +130,10 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                                         <Paper variant={'outlined'}>
                                             <Button
                                                 variant="contained"
-                                                color="primary"
-                                                startIcon={<AddCircleOutlineIcon />}
+                                                color="secondary"
+                                                startIcon={<CategoryIcon />}
                                                 onClick={() => addToCategory(category.label)}
+                                                className={'action-button'}
                                             >
                                                 {category.label}
                                             </Button>
@@ -149,6 +151,7 @@ const CategoryCard = (props: PropsWithChildren<OwnProps>): ReactElement<Function
                                         color="primary"
                                         startIcon={<AddCircleOutlineIcon />}
                                         onClick={() => setIsDialogOpen(true)}
+                                        className={'action-button'}
                                     >
                                         Create new
                                     </Button>
