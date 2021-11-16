@@ -41,7 +41,7 @@ const SlideButton = (props: SliderButtonProps) => {
     );
 };
 
-const Slider = (props: SliderProps) => {
+const Slider = (props: SliderProps): JSX.Element => {
     const { activeSlide, children } = props;
     const [currentSlide, setCurrentSlide] = useState<IShow>(activeSlide);
     const { width, elementRef } = useSize();
